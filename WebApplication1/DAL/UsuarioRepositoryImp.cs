@@ -25,7 +25,34 @@ namespace WebApplication1.DAL
 
         public IList<Usuario> getAll()
         {
-            throw new NotImplementedException();
+            List<Usuario> usuarios = null;
+            const string SQL = "mostrarUsuarios";
+
+            using (SqlConnection conexion = new SqlConnection(conexionString))
+            {
+
+                SqlCommand command = new SqlCommand(SQL, conexion);
+                command.CommandText = SQL;
+                command.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.HasRows) //si devuelve datos, hasRows es un atributo del objeto
+                    {
+                        usuarios = new List<Usuario>();
+                        Usuario usuario = null;
+                        while (reader.Read()) //cada vuelta que da sacando datos
+                        {
+                            usuario = parseUsuario(reader);
+                            usuarios.Add(usuario);
+                        }
+                    }
+                }
+            }
+
+            return usuarios;
+
         }
 
         public Usuario update(Usuario usuario)
@@ -44,7 +71,7 @@ namespace WebApplication1.DAL
                 command.CommandText = SQL;
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@idUsuario", codigo);
-                command.Connection = conexion;
+                //command.Connection = conexion;
                 conexion.Open();
                 
                 using (SqlDataReader reader = command.ExecuteReader())
