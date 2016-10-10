@@ -40,21 +40,30 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.GridView grdv_Usuarios;
         
         /// <summary>
-        /// Control updatePanelUsuario.
+        /// Control txtidUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatePanelUsuario;
+        protected global::System.Web.UI.WebControls.TextBox txtidUsuario;
         
         /// <summary>
-        /// Control deltailsUsuario.
+        /// Control btnCancelDelete.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView deltailsUsuario;
+        protected global::System.Web.UI.WebControls.Button btnCancelDelete;
+        
+        /// <summary>
+        /// Control btnDelete.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
     }
 }

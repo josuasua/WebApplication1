@@ -36,26 +36,18 @@
             </Columns>
         </asp:GridView>
         
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal fade" id="deleteConfirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                <h4 class="modal-title" id="exampleModalLabel">Borrar</h4>
               </div>
               <div class="modal-body">
-                <asp:UpdatePanel runat="server" ID="updatePanelUsuario">
-                    <ContentTemplate>
-                        <asp:DetailsView runat="server" ID="deltailsUsuario">
-                            <Fields>
-                                <asp:BoundField DataField="idUsuario" Visible="false" />
-                                <asp:BoundField DataField="nombre" Visible="true" />
-                                <asp:BoundField DataField="apellidos" Visible="true" />
-                            </Fields>
-                        </asp:DetailsView>
-                    </ContentTemplate>
-
-                </asp:UpdatePanel>
+                ¿Está ud. seguro?
+                  <asp:TextBox ID="txtidUsuario" runat="server" Visible="false" Enabled="false"></asp:TextBox>
+                  <asp:Button ID="btnCancelDelete" runat="server" OnClick="" Text="Cancelar el borrado" />
+                  <asp:Button ID="btnDelete" runat="server" OnClick="" Text="Borrar" />
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
