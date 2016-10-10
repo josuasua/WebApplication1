@@ -36,22 +36,23 @@ namespace WebApplication1.DAL
         public Usuario getById(Guid codigo)
         {
             Usuario usuario = null;
-            const string SQL = "";
+            const string SQL = "mostrarUnUsuario";
             using (SqlConnection conexion = new SqlConnection(conexionString))
             {
 
-                SqlCommand command = conexion.CreateCommand();
+                SqlCommand command =  new SqlCommand (SQL, conexion);
                 command.CommandText = SQL;
                 command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@idUsuario", codigo);
                 command.Connection = conexion;
                 conexion.Open();
-                ;
+                
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    if (reader.HasRows)
+                    if (reader.HasRows) //si devuelve datos
                     {
 
-                        while (reader.Read())
+                        while (reader.Read()) //cada vuelta que da sacando datos
                         {
                             usuario = parseUsuario(reader);
                         }
@@ -70,6 +71,7 @@ namespace WebApplication1.DAL
             usuario.Email = reader["email"].ToString();
             usuario.Password = reader["password"].ToString();
             usuario.User = reader["usuario"].ToString();
+            usuario.FNacimiento = Convert.ToDateTime(reader["fnacimiento"].ToString());
 
 
             return usuario;
