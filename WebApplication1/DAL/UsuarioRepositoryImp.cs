@@ -12,6 +12,7 @@ namespace WebApplication1.DAL
 {
     public class UsuarioRepositoryImp : UsuarioRepository
     {
+        private string conexionString = ConfigurationManager.ConnectionStrings["GESTLIBRERIAConnectionString"].ConnectionString;
         public Guid create(Usuario usuario)
         {
             throw new NotImplementedException();

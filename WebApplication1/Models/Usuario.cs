@@ -14,9 +14,20 @@ namespace WebApplication1.Models
         private string _email;
         private DateTime _fNacimiento;
         private Guid _codigoUsuario;
-
+        public Usuario()
+        {
+            this._nombre = "";
+            this._apellidos = "";
+            this._password = "";
+            this._user = "";
+            this._email = "";
+            this._fNacimiento = new DateTime();
+            this._codigoUsuario = new Guid("-1");
+            
+        }
         public Usuario(string _nombre, string _apellidos, string _password, string _user, string _email, DateTime _fNacimiento, Guid _codigoUsuario)
         {
+           
             this._nombre = _nombre;
             this._apellidos = _apellidos;
             this._password = _password;
